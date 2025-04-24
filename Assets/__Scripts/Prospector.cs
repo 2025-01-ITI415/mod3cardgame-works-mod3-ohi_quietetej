@@ -114,6 +114,7 @@ public class Prospector : MonoBehaviour
 
             cp.layoutID = slot.id;
             cp.layoutSlot = slot;
+            cp.hiddenByString = slot.hiddenByString;
             // CardProspectors in the mine have the state CardState.mine
             cp.state = eCardState.mine;
 

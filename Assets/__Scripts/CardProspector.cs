@@ -15,7 +15,9 @@ public class CardProspector : Card
     public int layoutID;
     // The JsonLayoutSlot class stores information pulled in from JSON_Layout
     public JsonLayoutSlot layoutSlot;
-    public string hiddenByString = "";
+
+    //call this correctly
+    public string hiddenByString;
 
     /// <summary>
     /// Informs the Prospector class that this card has been clicked.
@@ -30,11 +32,15 @@ public class CardProspector : Card
     }
     public bool HasLayerOnTop()
     {
+        Debug.Log("HasLayersOnTop is being called");
         // If the hiddenBy list contains any cards, this card is covered by another card
         return !string.IsNullOrEmpty(hiddenByString);
     }
     public bool IsCoveredByOtherCards()
     {
+        
+        Debug.Log("IsCoveredByOtherCards is being called");
+        Debug.Log("hidden by : " + hiddenByString);
         if (string.IsNullOrEmpty(hiddenByString)) return false;
 
     // Split the string into individual IDs
