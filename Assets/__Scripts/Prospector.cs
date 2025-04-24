@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;   // We’ll need this line later in the chapter
@@ -267,4 +267,4 @@ public class Prospector : MonoBehaviour
         }
     }
 
-}
+}*/
