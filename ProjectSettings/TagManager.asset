@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Row4
+    uniqueID: 385508299
+    locked: 0
   - name: Row3
     uniqueID: 2400228343
     locked: 0

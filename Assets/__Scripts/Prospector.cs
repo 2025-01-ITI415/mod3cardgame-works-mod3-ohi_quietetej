@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;   // We’ll need this line later in the chap
 [RequireComponent(typeof(JsonParseLayout))]
 public class Prospector : MonoBehaviour
 {
-    private static Prospector S; // A private Singleton for Prospector
+    public static Prospector S; // A private Singleton for Prospector
 
     [Header("Dynamic")]
     public List<CardProspector> drawPile;
@@ -22,7 +22,7 @@ public class Prospector : MonoBehaviour
     private JsonLayout jsonLayout;
 
     // A Dictionary to pair mine layout IDs and actual Cards
-    private Dictionary<int, CardProspector> mineIdToCardDict;                 // a
+    public Dictionary<int, CardProspector> mineIdToCardDict;                 // a
 
 
     void Start()
@@ -114,6 +114,7 @@ public class Prospector : MonoBehaviour
 
             cp.layoutID = slot.id;
             cp.layoutSlot = slot;
+            cp.hiddenByString = slot.hiddenByString;
             // CardProspectors in the mine have the state CardState.mine
             cp.state = eCardState.mine;
 
@@ -219,7 +220,7 @@ public class Prospector : MonoBehaviour
                 // If the covering card is null or still in the mine...
                 if (coverCP == null || coverCP.state == eCardState.mine)
                 {
-                    faceUp = false; // then this card is face-down
+                    faceUp = true; // then this card is face-down
                 }
             }
             cp.faceUp = faceUp; // Set the value on the card
@@ -251,7 +252,7 @@ public class Prospector : MonoBehaviour
                 bool validMatch = true;  // Initially assume that it’s valid 
 
                 // If the card is face-down, it’s not valid
-                if (!cp.faceUp) validMatch = false;
+                if (cp.IsCoveredByOtherCards()) validMatch = false;
 
                 // If it’s not an adjacent rank, it’s not valid
                 if (!cp.AdjacentTo(S.target)) validMatch = false;            // b
@@ -266,5 +267,6 @@ public class Prospector : MonoBehaviour
                 break;
         }
     }
+    
 
 }
