@@ -1,4 +1,4 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +15,7 @@ public class CardProspector : Card
     public int layoutID;
     // The JsonLayoutSlot class stores information pulled in from JSON_Layout
     public JsonLayoutSlot layoutSlot;
+    public string hiddenByString = "";
 
     /// <summary>
     /// Informs the Prospector class that this card has been clicked.
@@ -27,6 +28,37 @@ public class CardProspector : Card
         Prospector.CARD_CLICKED(this);
         base.OnMouseUpAsButton();// b
     }
+    public bool HasLayerOnTop()
+    {
+        // If the hiddenBy list contains any cards, this card is covered by another card
+        return !string.IsNullOrEmpty(hiddenByString);
+    }
+    public bool IsCoveredByOtherCards()
+    {
+        if (string.IsNullOrEmpty(hiddenByString)) return false;
 
+    // Split the string into individual IDs
+    string[] idStrings = hiddenByString.Split(',');
+
+    Debug.Log(idStrings);
+
+    foreach (string idStr in idStrings)
+    {
+        // Try to parse ID
+        if (int.TryParse(idStr, out int id))
+        {
+            if (Prospector.S.mineIdToCardDict.TryGetValue(id, out CardProspector coverCard))
+            {
+                if (coverCard != null && coverCard.state == eCardState.mine)
+                {
+                    // This card is still covering us
+                    return true;
+                }
+            }
+        }
+    }
+
+    // None of the listed covering cards are still covering us
+    return false;
+    }
 }
-*/

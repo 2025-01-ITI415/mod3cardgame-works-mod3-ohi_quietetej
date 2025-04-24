@@ -20,49 +20,56 @@
       "x": -6,
       "y": 1,
       "faceUp": true,
-      "layer": "Row0"
+      "layer": "Row0",
+      "hiddenByString": ""
     },
     {
       "id": 1,
       "x": -4,
       "y": 1,
       "faceUp": true,
-      "layer": "Row0"
+      "layer": "Row0",
+      "hiddenByString": ""
     },
     {
       "id": 2,
       "x": -2,
       "y": 1,
       "faceUp": true,
-      "layer": "Row0"
+      "layer": "Row0",
+      "hiddenByString": ""
     },
     {
       "id": 3,
       "x": 0,
       "y": 1,
       "faceUp": true,
-      "layer": "Row0"
+      "layer": "Row0",
+      "hiddenByString": ""
     },
     {
       "id": 4,
       "x": 2,
       "y": 1,
       "faceUp": true,
-      "layer": "Row0"
+      "layer": "Row0",
+      "hiddenByString": ""
     },
     {
       "id": 5,
       "x": 4,
       "y": 1,
       "faceUp": true,
-      "layer": "Row0"
+      "layer": "Row0",
+      "hiddenByString": ""
     },
     {
       "id": 6,
       "x": 6,
       "y": 1,
       "faceUp": true,
-      "layer": "Row0"
+      "layer": "Row0",
+      "hiddenByString": ""
     },
     {
       "id": 7,
